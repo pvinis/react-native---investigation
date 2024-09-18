@@ -1970,7 +1970,7 @@ __DEV__ &&
     ) {
       hostContext.isInAParentText ||
         error$jscomp$0(
-          "Text ngs must be rendered within a <Text> component."
+          "Text ngs must bed within a <Text> component."
         );
       hostContext = nextReactTag;
       nextReactTag += 2;

@@ -33,6 +33,7 @@ import {
   Platform,
   StyleSheet,
   View,
+  SafeAreaView,
   useColorScheme,
 } from 'react-native';
 import * as NativeComponentRegistry from 'react-native/Libraries/NativeComponent/NativeComponentRegistry';
@@ -256,40 +257,13 @@ const RNTesterApp = ({
     screen === Screens.COMPONENTS ? examplesList.components : examplesList.apis;
 
   return (
-    <RNTesterThemeContext.Provider value={theme}>
-      <RNTTitleBar
-        title={title}
-        theme={theme}
-        documentationURL={activeModule?.documentationURL}>
-        {activeModule && BackButtonComponent ? (
-          <BackButtonComponent onBack={handleBackPress} />
-        ) : undefined}
-      </RNTTitleBar>
-      <View
-        style={StyleSheet.compose(styles.container, {
-          backgroundColor: theme.GroupedBackgroundColor,
-        })}>
-        {activeModule != null ? (
-          <RNTesterModuleContainer
-            module={activeModule}
-            example={activeModuleExample}
-            onExampleCardPress={handleModuleExampleCardPress}
-          />
-        ) : (
-          <RNTesterModuleList
-            sections={activeExampleList}
-            handleModuleCardPress={handleModuleCardPress}
-          />
-        )}
-      </View>
-      <View style={styles.bottomNavbar}>
-        <RNTesterNavBar
-          screen={screen || Screens.COMPONENTS}
-          isExamplePageOpen={!!activeModule}
-          handleNavBarPress={handleNavBarPress}
-        />
-      </View>
-    </RNTesterThemeContext.Provider>
+    <>
+      <SafeAreaView />
+      <RNTesterModuleList
+        sections={activeExampleList}
+        handleModuleCardPress={handleModuleCardPress}
+      />
+    </>
   );
 };
 

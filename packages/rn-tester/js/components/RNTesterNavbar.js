@@ -109,18 +109,7 @@ const RNTesterNavbar = ({
 
   return (
     <View>
-      <View style={styles.buttonContainer}>
-        <ComponentTab
-          isComponentActive={isComponentActive}
-          handleNavBarPress={handleNavBarPress}
-          theme={theme}
-        />
-        <APITab
-          isAPIActive={isAPIActive}
-          handleNavBarPress={handleNavBarPress}
-          theme={theme}
-        />
-      </View>
+      <View style={styles.buttonContainer}></View>
     </View>
   );
 };

@@ -63,48 +63,7 @@ const renderSectionHeader = ({section}: {section: any, ...}) => (
 
 const RNTesterModuleList: React$AbstractComponent<any, void> = React.memo(
   ({sections, handleModuleCardPress}) => {
-    const filter = ({example, filterRegex, category}: any) =>
-      filterRegex.test(example.module.title) &&
-      (!category || example.category === category);
-
-    /* $FlowFixMe[missing-local-annot] The type annotation(s) required by
-     * Flow's LTI update could not be added via codemod */
-    const renderListItem = ({item, section, separators}) => {
-      return (
-        <ExampleModuleRow
-          item={item}
-          section={section}
-          onShowUnderlay={separators.highlight}
-          onHideUnderlay={separators.unhighlight}
-          handlePress={handleModuleCardPress}
-        />
-      );
-    };
-
-    return (
-      <View style={styles.listContainer}>
-        <RNTesterExampleFilter
-          testID="explorer_search"
-          page="components_page"
-          sections={sections}
-          filter={filter}
-          hideFilterPills={true}
-          render={({filteredSections}) => (
-            <SectionList
-              sections={filteredSections}
-              extraData={filteredSections}
-              renderItem={renderListItem}
-              keyboardShouldPersistTaps="handled"
-              automaticallyAdjustContentInsets={false}
-              keyboardDismissMode="on-drag"
-              renderSectionHeader={renderSectionHeader}
-              // eslint-disable-next-line react/no-unstable-nested-components
-              ListFooterComponent={() => <View style={{height: 80}} />}
-            />
-          )}
-        />
-      </View>
-    );
+    return <Investigation />;
   },
 );
 
@@ -138,3 +97,32 @@ const styles = StyleSheet.create({
 });
 
 module.exports = RNTesterModuleList;
+
+function Investigation() {
+  return (
+    <View>
+      <TestComponent />
+      <Text type="title">with 0</Text>
+      {0 && <TestComponent />}
+      {/* <Text>{0 && <TestComponent />}</Text> */}
+      <Text type="title">with empty str</Text>
+      {'' && <TestComponent />}
+      <Text type="title">with NaN</Text>
+      {/* {NaN && <TestComponent />} */}
+      <Text type="title">with false</Text>
+      {false && <TestComponent />}
+      <Text type="title">with null</Text>
+      {null && <TestComponent />}
+      <Text type="title">with undefined</Text>
+      {undefined && <TestComponent />}
+    </View>
+  );
+}
+
+function TestComponent() {
+  return (
+    <View>
+      <Text>Example Component</Text>
+    </View>
+  );
+}

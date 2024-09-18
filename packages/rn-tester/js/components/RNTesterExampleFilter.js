@@ -74,7 +74,6 @@ class RNTesterExampleFilter<T> extends React.Component<Props<T>, State> {
 
     return (
       <View style={styles.container}>
-        {this._renderTextInput()}
         {this._renderFilteredSections(filteredSections)}
       </View>
     );
@@ -122,27 +121,6 @@ class RNTesterExampleFilter<T> extends React.Component<Props<T>, State> {
                 <Image
                   source={require('../assets/search-icon.png')}
                   style={styles.searchIcon}
-                />
-                <TextInput
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  clearButtonMode="always"
-                  onChangeText={text => {
-                    this.setState(() => ({filter: text}));
-                  }}
-                  placeholder="Search..."
-                  placeholderTextColor={theme.PlaceholderTextColor}
-                  underlineColorAndroid="transparent"
-                  style={[
-                    styles.searchTextInput,
-                    {
-                      color: theme.LabelColor,
-                      backgroundColor: theme.SecondaryGroupedBackgroundColor,
-                      borderColor: theme.QuaternaryLabelColor,
-                    },
-                  ]}
-                  testID={this.props.testID}
-                  value={this.state.filter}
                 />
               </View>
               {!this.props.hideFilterPills && (

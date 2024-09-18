@@ -24,22 +24,7 @@ const HeaderIOS = ({
   documentationURL?: string,
   theme: RNTesterTheme,
 }) => {
-  return (
-    <SafeAreaView>
-      <View
-        style={[styles.header, {backgroundColor: theme.SystemBackgroundColor}]}>
-        <View style={styles.headerCenter}>
-          <Text style={{...styles.title, color: theme.LabelColor}}>
-            {title}
-          </Text>
-          {documentationURL && (
-            <RNTesterDocumentationURL documentationURL={documentationURL} />
-          )}
-        </View>
-        {children != null && <View>{children}</View>}
-      </View>
-    </SafeAreaView>
-  );
+  return <SafeAreaView></SafeAreaView>;
 };
 
 const HeaderAndroid = ({
