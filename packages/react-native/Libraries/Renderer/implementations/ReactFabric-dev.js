@@ -8932,6 +8932,9 @@ __DEV__ &&
     }
     function completeWork(current, workInProgress, renderLanes) {
       var newProps = workInProgress.pendingProps;
+      if ([/*5,*/6,11].includes(workInProgress.tag)) {
+      console.log("tag", workInProgress.tag, getComponentNameFromFiber(workInProgress), newProps);
+      }
       switch (workInProgress.tag) {
         case 28:
         case 16:

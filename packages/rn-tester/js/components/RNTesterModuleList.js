@@ -100,29 +100,25 @@ module.exports = RNTesterModuleList;
 
 function Investigation() {
   return (
-    <View>
+    <>
       <TestComponent />
-      <Text type="title">with 0</Text>
-      {0 && <TestComponent />}
+      {/* <Text type="title">with 0</Text> */}
+      {/* {0 && <TestComponent />} */}
       {/* <Text>{0 && <TestComponent />}</Text> */}
-      <Text type="title">with empty str</Text>
-      {'' && <TestComponent />}
-      <Text type="title">with NaN</Text>
+      {/* <Text type="title">with empty str</Text> */}
+      {/* {'' && <TestComponent />} */}
+      {/* <Text type="title">with NaN</Text> */}
       {/* {NaN && <TestComponent />} */}
-      <Text type="title">with false</Text>
-      {false && <TestComponent />}
-      <Text type="title">with null</Text>
-      {null && <TestComponent />}
-      <Text type="title">with undefined</Text>
-      {undefined && <TestComponent />}
-    </View>
+      {/* <Text type="title">with false</Text> */}
+      {/* {false && <TestComponent />} */}
+      {/* <Text type="title">with null</Text> */}
+      {/* {null && <TestComponent />} */}
+      {/* <Text type="title">with undefined</Text> */}
+      {/* {undefined && <TestComponent />} */}
+    </>
   );
 }
 
 function TestComponent() {
-  return (
-    <View>
-      <Text>Example Component</Text>
-    </View>
-  );
+  return <Text>Example Component</Text>;
 }
